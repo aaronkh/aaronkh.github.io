@@ -1,0 +1,29 @@
+{
+	"name": "Bobafetch",
+	"description": "The world's first all-in-one automated boba milk tea barista system. Capable of dispensing a customized drink in just 90 seconds!\nFirst cardboard prototype took home 3rd place overall and best hardware hack at UC Berkeley's 6th annual CalHacks hackathon (see Devpost). Later improvements added voice recoginition and Amazon payments integration. Currently working on redesigning the hardware and the purchasing portal.",
+	"date":"aug 2019 - current",
+	"links": [
+		{
+			"text": "hackster",
+			"url": "https://www.hackster.io/bobafetch/lego-boba-fetch-an-automated-boba-barista-powered-by-lego-4a886a"
+		},
+		{
+			"text": "devpost",
+			"url": "https://devpost.com/software/bobafetch"
+		},
+		{
+			"text": "github",
+			"url": "https://github.com/jaiveersingh1/CalHacks6.0-robot"
+		},
+		{
+			"text": "youtube",
+			"url": "https://youtu.be/9_RSG5sKX9Q?t=855"
+		}
+	],
+	"photos": [
+		{
+			"text": "v2 lego design",
+			"url": "/projects_src/boba.jpg"
+		}
+	] 
+}

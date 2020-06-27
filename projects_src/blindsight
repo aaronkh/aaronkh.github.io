@@ -1,0 +1,42 @@
+{
+	"name": "Blindsight",
+	"description": "A haptic feedback assistive smartwatch for the blind. Reads texts, locates objects, gives directions, makes payments, and more. \nPlaced semi-finalist in both Techcrunch Disrupt's 2018 hackathon and the 2018 US-China Young Maker competition. Featured in VISA, CBS, Makezine, and PYMTS.",
+	"date":"summer 2018",
+	"links": [
+		{
+			"text": "archive",
+			"url": "https://web.archive.org/web/20190609160004/https://blindsight.app/"
+		},
+		{
+			"text": "cbs",
+			"url": "https://sanfrancisco.cbslocal.com/2018/09/07/local-teens-develop-high-tech-device-to-help-the-visually-impaired/"
+		},
+		{
+			"text": "devpost",
+			"url": "https://devpost.com/software/blindsight-virtual-eyes-through-haptic-feedback"
+		}, 
+		{
+			"text": "makezine",
+			"url": "https://makezine.com/2019/08/07/using-ubiquitous-tech-to-assist-the-visually-impaired/"
+		},
+		{
+			"url": "https://www.pymnts.com/innovation/2018/visa-blindsight-digital-payments-visually-impaired/",
+			"text":"pymts"
+		},
+		{
+			"text": "visa news",
+			"url": "https://community.developer.visa.com/t5/Blogs/High-School-Grads-Build-Seamless-Payment-Experience-for-the/ba-p/9211"
+		},
+
+		{
+			"text": "youtube",
+			"url": "https://www.youtube.com/watch?v=PFl5jZzM34k"
+		}
+	],
+	"photos": [
+		{
+			"text": "Blindsight in Beijing for US-China Young Maker",
+			"url": "/projects_src/blindsight.jpg"
+		}
+	] 
+}

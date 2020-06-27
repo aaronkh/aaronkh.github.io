@@ -1,0 +1,25 @@
+{
+	"name": "PictRNNary",
+	"description": "\"Congrats to Team PictRNNary whom won our @azure prize @CalHacks⁩. Elegant multi-player take on the classic sketch-guessing game with AI that hand-draws the pictures. I think they’ll make a great regional finalist at #imaginecup too!\"\n-Justin Garrett (Director, Academic Ecosystems @ Microsoft)", 
+	"date":"nov 2018",
+	"links": [
+		{
+			"text": "hackerearth",
+			"url": "https://www.hackerearth.com/challenges/hackathon/cal-hacks-50/dashboard/61b39b3/submission/"
+		},
+		{
+			"text": "github",
+			"url": "https://github.com/DevinMui/pictionary"
+		},
+		{
+			"text": "twitter",
+			"url": "https://twitter.com/justgar/status/1059212042140213248"
+		}
+	],
+	"photos": [
+		{
+			"text": "our team (the project was somewhat ugly)",
+			"url": "/projects_src/pictrnnary.jpg"
+		}
+	] 
+}

@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f2505056.chunk.css",
+    "main.js": "/static/js/main.bfeead77.chunk.js",
+    "main.js.map": "/static/js/main.bfeead77.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bfca2edd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bfca2edd.js.map",
+    "static/js/2.70b7c77c.chunk.js": "/static/js/2.70b7c77c.chunk.js",
+    "static/js/2.70b7c77c.chunk.js.map": "/static/js/2.70b7c77c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a37d470104b0f5f492aced34731def6c.js": "/precache-manifest.a37d470104b0f5f492aced34731def6c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.f2505056.chunk.css.map": "/static/css/main.f2505056.chunk.css.map",
+    "static/js/2.70b7c77c.chunk.js.LICENSE.txt": "/static/js/2.70b7c77c.chunk.js.LICENSE.txt",
+    "static/media/404.png": "/static/media/404.0fbc8de9.png",
+    "static/media/face.png": "/static/media/face.9e275dc9.png",
+    "static/media/face.jpg": "/static/media/face.f13b1a91.jpg",
+    "static/media/flip-arrow.3cdf3ba6.svg": "/static/media/flip-arrow.3cdf3ba6.svg",
+    "static/media/nls.png": "/static/media/nls.7080577c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bfca2edd.js",
+    "static/js/2.70b7c77c.chunk.js",
+    "static/css/main.f2505056.chunk.css",
+    "static/js/main.bfeead77.chunk.js"
+  ]
+}
