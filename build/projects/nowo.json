@@ -1,0 +1,6 @@
+{
+    "title": "nowo's ark", 
+    "preview": "/projects/nowo.jpg",
+    "summary": "A simpler flood warning system using a pipe and a floating disk. During floods, the disk moves upward and contacts a button which sends a flood warning to local communities.  \nNamed Best Use of Cloudflare at HackSC, semi-finalist in the 2019 US-China Young Maker Competition, and 3rd Place in Soracom's Cellular IoT Challenge (LTE version)",
+    "tags": []
+}
