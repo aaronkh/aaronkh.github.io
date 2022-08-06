@@ -1,7 +1,5 @@
-import Link from "./Link";
-
 export default (props) => (
-  <Link to={props.src}>
+  <a href={props.src}>
     <img {...props} />
-  </Link>
+  </a>
 );

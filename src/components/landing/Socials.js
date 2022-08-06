@@ -33,7 +33,7 @@ const linkData = [
   {
     name: "ig.aahuang",
     icon: FiInstagram,
-    to: "https://www.instagram.com/@ig.aahuang",
+    to: "https://www.instagram.com/ig.aahuang",
   },
 ];
 

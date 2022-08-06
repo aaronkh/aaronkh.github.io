@@ -1,9 +1,11 @@
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 import { withThemeContext } from '../../context/ThemeContext'
 import { toIdName } from '../../util/StringUtil'
 import Link from './Link'
 import { Code, H1, H2, H3, P } from './Text'
+import ImageGallery from 'react-image-gallery'
 
 const Li = (props) =>
     <li {...props} children="">
@@ -28,7 +30,9 @@ const ImgContainer = styled.div`
 `
 const ImgCaption = styled.div`
     font-style: italic;
-    opacity: 0.8
+    opacity: 0.8;
+    margin-top: 16px;
+    margin-bottom: 8px;
 `
 const Img = (props) => <ImgContainer className='img'>
     <a href={props.src} target="_blank"><img {...props} /></a>
@@ -68,6 +72,35 @@ const HeaderWrapper = styled(Code)`
     }
 `
 
+const ImageGalleryDiv = styled.div`
+    text-align:center;
+
+`
+
+const CustomUl = props => {
+    const [index, setIndex] = React.useState(0)
+    if (props.children.find(v => v != '\n').props.children[0] == '__gallery') {
+        const images = props.children
+            .filter(v => v != '\n')
+            .map(v => v.props.children)
+            .map(v => v[0].props)
+            .filter(v => v)
+            .map(v => ({ original: v.src, alt: v.alt, thumbnail: v.src }))
+        
+        return <ImageGalleryDiv>
+            <ImageGallery
+                items={images}
+                onBeforeSlide={i => setIndex(i)}
+                showIndex={true}
+                showThumbnails={false}
+                showPlayButton={false}
+                showFullscreenButton={false} />
+                <ImgCaption>{images[index].alt}</ImgCaption>
+        </ImageGalleryDiv>
+    }
+    return <ul {...props} style={{ marginTop: 0 }} />
+}
+
 const HeaderItem = withThemeContext(props =>
     <a href={'#' + props.id} themeContext={props.themeContext}>
         <HeaderWrapper {...props}>
@@ -83,7 +116,7 @@ const Markdown = props => <ReactMarkdown components={{
     h3: ({ ...props }) => <H3><HeaderItem {...props} id={toIdName(props.children)} /></H3>,
     li: ({ ...props }) => <Li {...props} />,
     img: ({ ...props }) => <Img {...props} />,
-    ul: ({ ...props }) => <ul {...props} style={{ marginTop: 0 }} />
+    ul: ({ ...props }) => <CustomUl {...props} />
 }} {...props} />
 
 export default Markdown
