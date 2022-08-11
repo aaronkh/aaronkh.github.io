@@ -28,12 +28,7 @@ const ImgContainer = styled.div`
         // TODO: full width on mobile
     }
 `
-const ImgCaption = styled.div`
-    font-style: italic;
-    opacity: 0.8;
-    margin-top: 16px;
-    margin-bottom: 8px;
-`
+
 const Img = (props) => <ImgContainer className='img'>
     <a href={props.src} target="_blank"><img {...props} /></a>
     <ImgCaption>{props.alt}</ImgCaption>
@@ -73,29 +68,49 @@ const HeaderWrapper = styled(Code)`
 `
 
 const ImageGalleryDiv = styled.div`
-    text-align:center;
-
+    text-align: center;
+    * img {
+        cursor: pointer;
+    }
+    .image-gallery-content .image-gallery-slide .image-gallery-image {
+        max-height: 70vh !important
+    }
 `
+
+function transformImageUrl(url, isVideo) {
+    if (isVideo) url = url.replace('.jpg', '.mp4')
+    return url.replace('-small', '')
+}
 
 const CustomUl = props => {
     const [index, setIndex] = React.useState(0)
+    const [images, setImages] = React.useState(null)
     if (props.children.find(v => v != '\n').props.children[0] == '__gallery') {
-        const images = props.children
-            .filter(v => v != '\n')
-            .map(v => v.props.children)
-            .map(v => v[0].props)
-            .filter(v => v)
-            .map(v => ({ original: v.src, alt: v.alt, thumbnail: v.src }))
-        
+        if (images == null) {
+            let i = props.children
+                .filter(v => v != '\n')
+                .map(v => v.props.children)
+                .map(v => v[0].props)
+                .filter(v => v)
+                .map(v => ({ original: v.src, originalAlt: v.alt, loading: 'lazy', isVideo: v.alt.includes('(Video)') }))
+            setImages(i)
+            return <ImageGalleryDiv />
+        }
         return <ImageGalleryDiv>
             <ImageGallery
                 items={images}
+                onClick={() =>
+                    window.open(
+                        transformImageUrl(images[index].original, images[index].isVideo),
+                        '_blank')
+                }
                 onBeforeSlide={i => setIndex(i)}
+                lazyLoad={true}
                 showIndex={true}
                 showThumbnails={false}
                 showPlayButton={false}
                 showFullscreenButton={false} />
-                <ImgCaption>{images[index].alt}</ImgCaption>
+            <ImgCaption>{images[index].originalAlt}</ImgCaption>
         </ImageGalleryDiv>
     }
     return <ul {...props} style={{ marginTop: 0 }} />
@@ -108,15 +123,24 @@ const HeaderItem = withThemeContext(props =>
         </HeaderWrapper>
     </a>)
 
-const Markdown = props => <ReactMarkdown components={{
-    a: ({ ...props }) => <Link to={props.href} {...props} highlight underline />,
-    p: ({ ...props }) => <P {...props} />,
-    h1: ({ ...props }) => <H1><HeaderItem {...props} id={toIdName(props.children)} /></H1>,
-    h2: ({ ...props }) => <H2><HeaderItem {...props} id={toIdName(props.children)} /></H2>,
-    h3: ({ ...props }) => <H3><HeaderItem {...props} id={toIdName(props.children)} /></H3>,
-    li: ({ ...props }) => <Li {...props} />,
-    img: ({ ...props }) => <Img {...props} />,
-    ul: ({ ...props }) => <CustomUl {...props} />
-}} {...props} />
+const Markdown = React.memo(props =>
+    <ReactMarkdown components={{
+        a: ({ ...props }) => <Link to={props.href} {...props} highlight underline />,
+        p: ({ ...props }) => <P {...props} />,
+        h1: ({ ...props }) => <H1><HeaderItem {...props} id={toIdName(props.children)} /></H1>,
+        h2: ({ ...props }) => <H2><HeaderItem {...props} id={toIdName(props.children)} /></H2>,
+        h3: ({ ...props }) => <H3><HeaderItem {...props} id={toIdName(props.children)} /></H3>,
+        li: ({ ...props }) => <Li {...props} />,
+        img: ({ ...props }) => <Img {...props} />,
+        ul: ({ ...props }) => <CustomUl {...props} />
+    }} {...props} />
+)
+
+const ImgCaption = styled.div`
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 16px;
+    margin-bottom: 8px;
+`
 
 export default Markdown
