@@ -1,1 +1,153 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet"><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Aaron Huang</title><script defer="defer" src="/static/js/main.9bceb456.js"></script><link href="/static/css/main.84e4b447.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<html>
+
+<head>
+    <style>
+        #container {
+            max-width: 800px;
+            width: 100vw;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        :root {
+            --background: #fff;
+            --text: #000;
+            --highlight: #b0d;
+            --svg-filter: inherit;
+        }
+
+        .themable-transition {
+            transition: background 0.2s, color 0.2s, filter 0.2s;
+        }
+
+        .themable.dark-mode {
+            --background: #222;
+            --text: #ccc;
+            --highlight: #b5d;
+            --svg-filter: invert(100%);
+        }
+
+        a {
+            color: var(--highlight);
+            text-decoration-style: dashed;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text)
+        }
+
+        #footer {
+            text-align: right;
+            margin: 8px 0;
+        }
+
+        #footer a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="title.css" />
+    <link rel="stylesheet" type="text/css" href="description.css" />
+    <link rel="stylesheet" type="text/css" href="theme-switcher.css" />
+    <link rel="stylesheet" type="text/css" href="socials.css" />
+</head>
+
+<body class="themable">
+    <script>
+        // get default value
+        let isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        // get saved value
+        if (window.localStorage) {
+            isDark = window.localStorage.getItem('dark-mode')
+        }
+        // set value
+        if (isDark) {
+            document.querySelector("body").classList.add('dark-mode')
+        }
+    </script>
+    <div id="container">
+        <div id="title-container">
+            <div class="website-row">
+                <div id="welcome">
+                    Welcome to
+                </div>
+                <div class="website-row-spacer">
+                </div>
+            </div>
+            <div id="first-name">
+                Aaron
+            </div>
+            <div id="last-name-row">
+                <div id="last-name">
+                    Huang
+                </div>
+            </div>
+            <div class="website-row">
+                <div class="website-row-spacer">
+                </div>
+                <div id="website-row-website">
+                    website!
+                </div>
+            </div>
+        </div>
+        <div id="theme-switcher-container">
+            <div id="theme-switcher">
+                <img src="sunny-outline.svg" class="sun" height="80">
+                <img src="chevron-down-outline.svg" class="chevron">
+                <img src="chevron-down-outline.svg" class="chevron">
+                <img src="chevron-down-outline.svg" class="chevron">
+                <img src="moon-outline.svg" class="moon" height="72">
+            </div>
+        </div>
+        <ul id="description-container">
+            <li>Software Engineer @ Tiktok</li>
+            <li>Formerly at <a href="">$GOOG</a>, <a href>$AMZN</a></li>
+            <li>Cal alum c/o 2022</li>
+            <li>Based in <a href="https://maps.app.goo.gl/D6DzHSWdfymSLNa3A">San Jose, CA</a></li>
+        </ul>
+        <div id="links-container">
+            <ul>
+                <a href>Resume</a>
+                <a href="mailto:huang.aaron03@gmail.com">Contact</a>
+                <a href>More...</a>
+            </ul>
+            <div id="socials-row">
+                <!-- <a class="social" href="mailto:huang.aaron03@gmail.com">
+                    <img src="email.svg" alt="email">
+                </a> -->
+                <a class="social" href="https://wwww.linkedin.com/in/aaronkh">
+                    <img src="linkedin.svg" alt="linkedin">
+                </a>
+                <a class="social" href="https://wwww.instagram.com/ig.aahuang">
+                    <img src="insta.svg" alt="instagram">
+                </a>
+
+                <a class="social" href="https://www.github.com/aaronkh">
+                    <img src="github.svg" alt="github">
+                </a>
+            </div>
+        </div>
+        <div id="footer">
+            <a href="https://www.github.com/aaronkh/aaronkh.github.io">BSD ©️ 2023</a> <a
+                href="https://en.wikipedia.org/wiki/Warrant_canary">🐤</a>
+        </div>
+    </div>
+    <script>
+        const els = document.querySelectorAll(".themable")
+        window.onload = () =>
+            els.forEach(el => el.classList.add('themable-transition'))
+
+        document.getElementById('theme-switcher').addEventListener('click', () => {
+            if (window.localStorage.getItem('dark-mode')) {
+                window.localStorage.removeItem('dark-mode')
+            } else {
+                window.localStorage.setItem('dark-mode', 'true')
+            }
+            els.forEach(el => el.classList.toggle('dark-mode'))
+        })
+    </script>
+</body>
+
+</html>
