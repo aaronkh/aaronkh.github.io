@@ -6,7 +6,7 @@
   height: 0px;
   width: fit-content;
   align-self: flex-end;
-  opacity: 0.6;
+  opacity: var(--theme-switcher-opacity);
   transition: 0.25s;
 }
 

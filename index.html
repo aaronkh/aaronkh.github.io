@@ -1,53 +1,10 @@
 <html>
 
 <head>
-    <style>
-        #container {
-            max-width: 800px;
-            width: 100vw;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        :root {
-            --background: #fff;
-            --text: #000;
-            --highlight: #b0d;
-            --svg-filter: inherit;
-        }
-
-        .themable-transition {
-            transition: background 0.2s, color 0.2s, filter 0.2s;
-        }
-
-        .themable.dark-mode {
-            --background: #222;
-            --text: #ccc;
-            --highlight: #b5d;
-            --svg-filter: invert(100%);
-        }
-
-        a {
-            color: var(--highlight);
-            text-decoration-style: dashed;
-        }
-
-        body {
-            background-color: var(--background);
-            color: var(--text)
-        }
-
-        #footer {
-            text-align: right;
-            margin: 8px 0;
-        }
-
-        #footer a {
-            text-decoration: none;
-            color: inherit;
-        }
-    </style>
+    <title>
+        Aaron Huang
+    </title>
+    <link rel="stylesheet" type="text/css" href="common.css" />
     <link rel="stylesheet" type="text/css" href="title.css" />
     <link rel="stylesheet" type="text/css" href="description.css" />
     <link rel="stylesheet" type="text/css" href="theme-switcher.css" />
@@ -55,18 +12,7 @@
 </head>
 
 <body class="themable">
-    <script>
-        // get default value
-        let isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        // get saved value
-        if (window.localStorage) {
-            isDark = window.localStorage.getItem('dark-mode')
-        }
-        // set value
-        if (isDark) {
-            document.querySelector("body").classList.add('dark-mode')
-        }
-    </script>
+    <script src="theme-preload.js"></script>
     <div id="container">
         <div id="title-container">
             <div class="website-row">
@@ -103,20 +49,18 @@
         </div>
         <ul id="description-container">
             <li>Software Engineer @ Tiktok</li>
-            <li>Formerly at <a href="">$GOOG</a>, <a href>$AMZN</a></li>
+            <li>Formerly at <a href="./aaron_huang_resume.pdf">$GOOG</a>, <a href="./aaron_huang_resume.pdf">$AMZN</a>
+            </li>
             <li>Cal alum c/o 2022</li>
             <li>Based in <a href="https://maps.app.goo.gl/D6DzHSWdfymSLNa3A">San Jose, CA</a></li>
         </ul>
         <div id="links-container">
             <ul>
-                <a href>Resume</a>
+                <a href="./aaron_huang_resume.pdf">Resume</a>
                 <a href="mailto:huang.aaron03@gmail.com">Contact</a>
-                <a href>More...</a>
+                <a href="./more.html">More...</a>
             </ul>
             <div id="socials-row">
-                <!-- <a class="social" href="mailto:huang.aaron03@gmail.com">
-                    <img src="email.svg" alt="email">
-                </a> -->
                 <a class="social" href="https://wwww.linkedin.com/in/aaronkh">
                     <img src="linkedin.svg" alt="linkedin">
                 </a>
@@ -134,19 +78,8 @@
                 href="https://en.wikipedia.org/wiki/Warrant_canary">🐤</a>
         </div>
     </div>
-    <script>
-        const els = document.querySelectorAll(".themable")
-        window.onload = () =>
-            els.forEach(el => el.classList.add('themable-transition'))
+    <script src="theme-switcher.js" defer>
 
-        document.getElementById('theme-switcher').addEventListener('click', () => {
-            if (window.localStorage.getItem('dark-mode')) {
-                window.localStorage.removeItem('dark-mode')
-            } else {
-                window.localStorage.setItem('dark-mode', 'true')
-            }
-            els.forEach(el => el.classList.toggle('dark-mode'))
-        })
     </script>
 </body>
 
